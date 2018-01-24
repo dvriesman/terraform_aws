@@ -1,23 +1,25 @@
+# Terraform AWS
 
+This is my simple project to test terraform with some AWS features, like create VPC, Bucket, Website with buckets, Fargate and autoscale.
 
-1) First of all, to run this experiment you need TerraForm.
-2) Create a file named terraform.tfvars with your AWS Credentials like that:
+- First of all, to run this experiment you need TerraForm.
+- Create a file named terraform.tfvars with your AWS Credentials like that:
 
 aws_access_key = "xxxxx"
 aws_secret_key = "yyyyy"
 
 (you don't need that if you already have a ~/.aws/credentials).
 
-3) Initialize your TerraForm
+- Initialize your TerraForm
 
-#> terraform init
+**#> terraform init
 
-4) Create your infrastructure 
+- Create your infrastructure 
 
-#> terraform apply
+**#> terraform apply
 
-5) After test it, you can destroy with
+- After test it, you can destroy with
 
-#> terraform destroy
+**#> terraform destroy
 
 
