@@ -85,8 +85,8 @@ resource "aws_ecs_service" "myterraformtestc_svc" {
   network_configuration {
     security_groups = ["${aws_default_security_group.default.id}"]
     subnets = ["${aws_subnet.mypublicsub.*.id}", "${aws_subnet.mypublicsub2.*.id}"]
- }
+  }
 
-
+  depends_on = ["aws_lb_target_group.target", "aws_lb_listener.listener_80"]
   
 }

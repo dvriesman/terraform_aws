@@ -97,4 +97,7 @@ resource "aws_s3_bucket_object" "object" {
   key    = "index.html"
   source = "./site01/index.html"
   etag   = "${md5(file("./site01/index.html"))}"
+
+    depends_on = ["aws_s3_bucket.website"]
+
 }
