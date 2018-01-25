@@ -8,13 +8,17 @@ variable "aws_region" {
 
 variable "vpc_cidr" {
     description = "CIDR for the whole VPC"
-    default = "10.20.0.0/16"
+    default = "10.30.0.0/16"
 }
 
 variable "public_subnet_cidr" {
     description = "CIDR for the Public Subnet"
-    default = "10.20.0.0/24"
+    default = "10.30.0.0/24"
+}
+variable "public_subnet2_cidr" {
+    description = "CIDR for the Public Subnet"
+    default = "10.30.10.0/24"
 }
 variable "bucket_name" {
-    default = "dvriesman.site.bucket"
+    default = "dvriesman.website.bucket"
 }

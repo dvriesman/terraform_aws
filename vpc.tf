@@ -1,3 +1,5 @@
+
+
 resource "aws_vpc" "VPC_Terraform" {
     cidr_block = "${var.vpc_cidr}"
     enable_dns_hostnames = true
@@ -5,6 +7,25 @@ resource "aws_vpc" "VPC_Terraform" {
         Name = "VPC_Terraform"
     }
 }
+
+resource "aws_default_security_group" "default" {
+    vpc_id = "${aws_vpc.VPC_Terraform.id}"
+
+    ingress {
+        protocol  = "-1"
+        self = "true"
+        from_port = 0
+        to_port   = 0
+    }
+
+    egress {
+        protocol = "-1"
+        cidr_blocks = ["0.0.0.0/0"]
+        from_port = 0
+        to_port = 0
+     }
+}
+
 
 resource "aws_internet_gateway" "VPC_Terraform" {
     vpc_id = "${aws_vpc.VPC_Terraform.id}"
@@ -18,6 +39,17 @@ resource "aws_subnet" "mypublicsub" {
 
     tags {
         Name = "Public Subnet"
+    }
+}
+
+resource "aws_subnet" "mypublicsub2" {
+    vpc_id = "${aws_vpc.VPC_Terraform.id}"
+
+    cidr_block = "${var.public_subnet2_cidr}"
+    availability_zone = "us-east-1b"
+
+    tags {
+        Name = "Public Subnet 2"
     }
 }
 
